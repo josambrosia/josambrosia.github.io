@@ -1,0 +1,120 @@
+/* ============================================================
+   Teknominerba — "Industrial Safety" design system (prototype)
+   ============================================================ */
+:root{
+  --ink:#152A4E; --ink-2:#21395E; --ink-3:#35517B;
+  --paper:#EDF0F5; --paper-2:#DFE6EF;
+  --ember:#CA2E3C; --hivis:#C6972F; --steel:#5C6E88;
+  --line:rgba(21,42,78,.12);
+  --line-light:rgba(237,240,245,.16);
+}
+
+*{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Hanken Grotesk",system-ui,sans-serif;
+  overflow-x:hidden;
+}
+::selection{ background:var(--ember); color:var(--paper); }
+
+/* subtle grain over everything */
+body::after{
+  content:""; position:fixed; inset:0; z-index:60; pointer-events:none; opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- type ---- */
+.font-display{ font-family:"Saira Condensed",sans-serif; }
+.h-hero{ font-family:"Saira Condensed",sans-serif; font-weight:800; line-height:.92;
+  letter-spacing:-.01em; text-transform:uppercase; }
+.h-sec{ font-family:"Saira Condensed",sans-serif; font-weight:700; line-height:.95;
+  text-transform:uppercase; letter-spacing:.005em; }
+.eyebrow{ font-family:"JetBrains Mono",monospace; font-size:.72rem; font-weight:500;
+  letter-spacing:.28em; text-transform:uppercase; }
+
+/* ---- decorative ---- */
+.blueprint{
+  background-image:
+    linear-gradient(var(--line-light) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line-light) 1px,transparent 1px);
+  background-size:34px 34px;
+}
+.contour{
+  background-image:radial-gradient(120% 90% at 80% -10%,rgba(202,46,60,.16),transparent 55%),
+    radial-gradient(80% 80% at 10% 110%,rgba(33,57,94,.55),transparent 60%);
+}
+.hazard{
+  background-image:repeating-linear-gradient(-45deg,var(--ink) 0 13px,var(--ember) 13px 26px);
+}
+.rule{ height:1px; background:var(--line); border:0; }
+.rule-light{ height:1px; background:var(--line-light); border:0; }
+
+/* ---- buttons ---- */
+.btn{ display:inline-flex; align-items:center; gap:.55rem; font-weight:700;
+  font-size:.95rem; padding:.85rem 1.4rem; border:2px solid var(--ink);
+  transition:transform .12s ease, box-shadow .12s ease, background .15s; cursor:pointer; }
+.btn-ember{ background:var(--ember); color:#fff; box-shadow:var(--shadow,5px 5px 0 0 var(--ink)); }
+.btn-ember:hover{ transform:translate(-2px,-2px); box-shadow:7px 7px 0 0 var(--ink); }
+.btn-ghost{ background:transparent; color:var(--ink); }
+.btn-ghost:hover{ background:var(--ink); color:var(--paper); }
+.btn-onink{ background:var(--paper); color:var(--ink); box-shadow:5px 5px 0 0 var(--ember); }
+.btn-onink:hover{ transform:translate(-2px,-2px); box-shadow:7px 7px 0 0 var(--ember); }
+
+/* ---- chips / tags ---- */
+.tag{ font-family:"JetBrains Mono",monospace; font-size:.66rem; letter-spacing:.12em;
+  text-transform:uppercase; padding:.28rem .55rem; border:1px solid currentColor; }
+.chip{ font-family:"JetBrains Mono",monospace; font-size:.66rem; letter-spacing:.14em;
+  text-transform:uppercase; background:var(--ink); color:#fff; padding:.25rem .55rem; font-weight:600; }
+
+/* ---- section label ---- */
+.seclabel{ display:flex; align-items:center; gap:.9rem; }
+.seclabel .no{ font-family:"JetBrains Mono",monospace; font-size:.8rem; color:var(--ember); }
+
+/* ---- class card ---- */
+.cardc{ background:#fff; border:1.5px solid var(--ink); transition:transform .14s ease, box-shadow .14s ease; }
+.cardc:hover{ transform:translate(-3px,-3px); box-shadow:8px 8px 0 0 var(--ink); }
+.cardc:hover .thumb img{ transform:scale(1.06); }
+.thumb{ overflow:hidden; }
+.thumb img{ transition:transform .5s cubic-bezier(.2,.7,.2,1); }
+
+/* category tile */
+.cattile{ border:1.5px solid var(--ink); background:var(--paper); transition:.16s; }
+.cattile:hover{ background:var(--ink); color:var(--paper); transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 0 var(--ember); }
+.cattile:hover .cat-ico{ background:var(--ember); color:#fff; }
+
+/* ---- ticker ---- */
+.ticker{ overflow:hidden; white-space:nowrap; }
+.ticker__track{ display:inline-block; animation:marquee 26s linear infinite; }
+.ticker:hover .ticker__track{ animation-play-state:paused; }
+@keyframes marquee{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ---- reveal on load / scroll ---- */
+@keyframes rise{ from{opacity:0; transform:translateY(22px)} to{opacity:1; transform:none} }
+.stagger > *{ opacity:0; animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+.stagger > *:nth-child(1){ animation-delay:.05s }
+.stagger > *:nth-child(2){ animation-delay:.16s }
+.stagger > *:nth-child(3){ animation-delay:.27s }
+.stagger > *:nth-child(4){ animation-delay:.38s }
+.stagger > *:nth-child(5){ animation-delay:.49s }
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  .stagger>*,.reveal{ animation:none!important; opacity:1!important; transform:none!important; transition:none!important; }
+}
+
+/* nav */
+.navlink{ font-weight:600; font-size:.95rem; position:relative; padding:.25rem 0; }
+.navlink::after{ content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0;
+  background:var(--ember); transition:width .2s; }
+.navlink:hover::after{ width:100%; }
+
+/* play button */
+.playbtn{ width:64px; height:64px; display:grid; place-items:center; background:var(--ember);
+  color:#fff; border:2px solid var(--ink); box-shadow:4px 4px 0 0 var(--ink); transition:.15s; }
+.cardc:hover .playbtn, .heroplay:hover .playbtn{ transform:scale(1.06); }
+
+/* footer link */
+.flink{ color:rgba(245,242,234,.72); transition:.15s; }
+.flink:hover{ color:var(--ember); }

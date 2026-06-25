@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+<title>Teknominerba — Pelatihan & Sertifikasi K3 Pertambangan</title>
+<meta name="description" content="Platform video pembelajaran K3 pertambangan. Belajar dari instruktur bersertifikat, akses selamanya, siap sertifikasi."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/styles.css"/>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.stagger>*{opacity:1!important;animation:none!important}</style></noscript>
+</head>
+<body class="font-sans">
+
+<!-- ticker -->
+<div class="bg-ink text-paper border-b-2 border-ember">
+  <div class="ticker py-2">
+    <div class="ticker__track font-mono text-[.72rem] tracking-[.18em] uppercase">
+      <span class="mx-6">◆ Sertifikasi K3 tervalidasi</span><span class="mx-6 text-ember">Akses kelas selamanya</span>
+      <span class="mx-6">◆ Instruktur bersertifikat BNSP</span><span class="mx-6 text-ember">Bayar via VA &amp; QRIS</span>
+      <span class="mx-6">◆ Kelas live &amp; rekaman</span><span class="mx-6">◆ Sertifikasi K3 tervalidasi</span>
+      <span class="mx-6 text-ember">Akses kelas selamanya</span><span class="mx-6">◆ Instruktur bersertifikat BNSP</span>
+      <span class="mx-6 text-ember">Bayar via VA &amp; QRIS</span><span class="mx-6">◆ Kelas live &amp; rekaman</span>
+    </div>
+  </div>
+</div>
+
+<!-- nav -->
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-[color:var(--line)]">
+  <nav class="max-w-content mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center">
+      <img src="/assets/logo-teknominerba.webp" alt="Tekno Minerba — Education in Mining Industry Indonesia" class="h-9 md:h-10 w-auto"/>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#katalog" class="navlink">Katalog</a>
+      <a href="#live" class="navlink">Kelas Live</a>
+      <a href="#membership" class="navlink">Membership</a>
+      <a href="#cara" class="navlink">Cara Kerja</a>
+    </div>
+    <div class="hidden md:flex items-center gap-3">
+      <a href="/profil/" class="navlink">Masuk</a>
+      <a href="/profil/" class="btn btn-ember text-sm" style="box-shadow:4px 4px 0 0 var(--ink)">Daftar Gratis</a>
+    </div>
+    <button id="menuBtn" class="md:hidden w-10 h-10 border-2 border-ink grid place-items-center" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </nav>
+  <div id="mobileMenu" class="md:hidden hidden border-t border-[color:var(--line)] bg-paper px-5 py-4 space-y-3">
+    <a href="#katalog" class="block navlink">Katalog</a>
+    <a href="#live" class="block navlink">Kelas Live</a>
+    <a href="#membership" class="block navlink">Membership</a>
+    <a href="#cara" class="block navlink">Cara Kerja</a>
+    <div class="flex gap-3 pt-2">
+      <a href="/profil/" class="btn btn-ghost text-sm flex-1 justify-center">Masuk</a>
+      <a href="/profil/" class="btn btn-ember text-sm flex-1 justify-center" style="box-shadow:4px 4px 0 0 var(--ink)">Daftar</a>
+    </div>
+  </div>
+</header>
+
+<!-- hero -->
+<section class="relative bg-ink text-paper overflow-hidden">
+  <div class="absolute inset-0 blueprint opacity-60"></div>
+  <div class="absolute inset-0 contour"></div>
+  <div class="hazard absolute top-0 left-0 right-0 h-1.5 opacity-90"></div>
+  <div class="relative max-w-content mx-auto px-5 py-20 md:py-28 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-7 stagger">
+      <p class="eyebrow text-ember mb-5">[ Platform Pembelajaran K3 Pertambangan ]</p>
+      <h1 class="h-hero text-[3.4rem] sm:text-7xl lg:text-[5.6rem] mb-6">
+        Kompetensi K3<br/>Tambang yang<br/><span class="text-ember">tersertifikasi.</span>
+      </h1>
+      <p class="text-lg text-paper/70 max-w-xl mb-8">
+        Belajar keselamatan pertambangan dari instruktur bersertifikat — video terstruktur,
+        materi pendukung, kelas live, dan ujian. Akses kelas <strong class="text-paper">selamanya</strong>.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-10">
+        <a href="#katalog" class="btn btn-ember">Jelajahi Kelas →</a>
+        <a href="#cara" class="btn btn-onink">Lihat Cara Kerja</a>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-paper/60">
+        <span class="flex items-center gap-2"><span class="text-ember">✓</span> Sertifikat kompetensi</span>
+        <span class="flex items-center gap-2"><span class="text-ember">✓</span> Pembayaran VA &amp; QRIS</span>
+        <span class="flex items-center gap-2"><span class="text-ember">✓</span> Garansi akses</span>
+      </div>
+    </div>
+
+    <!-- hero visual: course preview card -->
+    <div class="lg:col-span-5 reveal">
+      <div class="relative">
+        <div class="absolute -inset-3 hazard opacity-20 -z-0" style="clip-path:polygon(0 0,100% 0,100% 100%,0 100%)"></div>
+        <div class="relative bg-ink-2 border-2 border-paper/15">
+          <div class="heroplay relative aspect-video bg-ink-3 grid place-items-center overflow-hidden">
+            <div class="absolute inset-0 blueprint opacity-40"></div>
+            <span class="chip absolute top-3 left-3">● Sedang tayang</span>
+            <div class="playbtn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="p-5 border-t-2 border-paper/15">
+            <p class="eyebrow text-ember mb-1">Sesi 03 / 12</p>
+            <h3 class="font-display text-2xl uppercase leading-none">Pengawas Operasional Pertama</h3>
+            <div class="flex items-center justify-between mt-4 text-sm text-paper/60">
+              <span>Manajemen risiko tambang</span><span class="font-mono">24:18</span>
+            </div>
+            <div class="mt-3 h-1.5 bg-paper/15"><div class="h-full bg-ember" style="width:38%"></div></div>
+          </div>
+        </div>
+        <div class="absolute -bottom-5 -left-5 bg-hivis text-ink px-4 py-3 border-2 border-ink hidden sm:block">
+          <p class="font-display text-2xl leading-none">92%</p>
+          <p class="font-mono text-[.6rem] tracking-widest uppercase">Lulus sertifikasi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- stats -->
+<section class="bg-paper-2 text-ink border-y-2 border-ink">
+  <div class="max-w-content mx-auto px-5 grid grid-cols-2 md:grid-cols-4 divide-x divide-ink/12">
+    <div class="py-7 px-5"><p class="font-display text-4xl md:text-5xl leading-none">40+</p><p class="font-mono text-xs tracking-widest uppercase mt-1">Kelas tersedia</p></div>
+    <div class="py-7 px-5"><p class="font-display text-4xl md:text-5xl leading-none">2.500+</p><p class="font-mono text-xs tracking-widest uppercase mt-1">Peserta aktif</p></div>
+    <div class="py-7 px-5"><p class="font-display text-4xl md:text-5xl leading-none">25</p><p class="font-mono text-xs tracking-widest uppercase mt-1">Instruktur</p></div>
+    <div class="py-7 px-5"><p class="font-display text-4xl md:text-5xl leading-none">92%</p><p class="font-mono text-xs tracking-widest uppercase mt-1">Kelulusan</p></div>
+  </div>
+</section>
+
+<!-- categories -->
+<section class="max-w-content mx-auto px-5 py-20">
+  <div class="seclabel reveal mb-10">
+    <span class="no">01</span><div class="rule flex-1"></div>
+    <h2 class="h-sec text-3xl md:text-4xl">Bidang Kompetensi</h2>
+  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <!-- tile -->
+    <a href="#" class="cattile p-6 reveal flex items-start gap-4">
+      <span class="cat-ico w-11 h-11 border-2 border-current grid place-items-center shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M12 22V12M3 7l9 5 9-5"/></svg></span>
+      <div><h3 class="font-display text-xl uppercase leading-none mb-1">K3 Umum (AK3U)</h3><p class="text-sm opacity-70">Dasar keselamatan &amp; kesehatan kerja, persiapan BNSP.</p></div>
+    </a>
+    <a href="#" class="cattile p-6 reveal flex items-start gap-4">
+      <span class="cat-ico w-11 h-11 border-2 border-current grid place-items-center shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
+      <div><h3 class="font-display text-xl uppercase leading-none mb-1">Pengawas Operasional</h3><p class="text-sm opacity-70">POP, POM, POU — jenjang pengawas pertambangan.</p></div>
+    </a>
+    <a href="#" class="cattile p-6 reveal flex items-start gap-4">
+      <span class="cat-ico w-11 h-11 border-2 border-current grid place-items-center shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M5 9l2 2M19 9l-2 2M4 22a8 8 0 0116 0z"/></svg></span>
+      <div><h3 class="font-display text-xl uppercase leading-none mb-1">Juru Ledak</h3><p class="text-sm opacity-70">Teknik peledakan (blasting) &amp; pengelolaan bahan.</p></div>
+    </a>
+    <a href="#" class="cattile p-6 reveal flex items-start gap-4">
+      <span class="cat-ico w-11 h-11 border-2 border-current grid place-items-center shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17h11v-4l4-1 3 3v2M6 21a2 2 0 100-4 2 2 0 000 4zM18 21a2 2 0 100-4 2 2 0 000 4z"/></svg></span>
+      <div><h3 class="font-display text-xl uppercase leading-none mb-1">Operator Alat Berat</h3><p class="text-sm opacity-70">Keselamatan operasi excavator, dump truck, dozer.</p></div>
+    </a>
+    <a href="#" class="cattile p-6 reveal flex items-start gap-4">
+      <span class="cat-ico w-11 h-11 border-2 border-current grid place-items-center shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><path d="M12 6v6M9 9h6"/></svg></span>
+      <div><h3 class="font-display text-xl uppercase leading-none mb-1">Tanggap Darurat</h3><p class="text-sm opacity-70">P3K, evakuasi, &amp; penanganan keadaan darurat tambang.</p></div>
+    </a>
+    <a href="#" class="cattile p-6 reveal flex items-start gap-4">
+      <span class="cat-ico w-11 h-11 border-2 border-current grid place-items-center shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5-3 8-7 8-12V5l-8-3-8 3v5c0 5 3 9 8 12z"/></svg></span>
+      <div><h3 class="font-display text-xl uppercase leading-none mb-1">Lingkungan Tambang</h3><p class="text-sm opacity-70">Reklamasi, pengelolaan limbah &amp; mutu lingkungan.</p></div>
+    </a>
+  </div>
+</section>
+
+<!-- featured classes -->
+<section id="katalog" class="bg-paper-2/60 border-y border-[color:var(--line)] py-20">
+  <div class="max-w-content mx-auto px-5">
+    <div class="seclabel reveal mb-3"><span class="no">02</span><div class="rule flex-1"></div><h2 class="h-sec text-3xl md:text-4xl">Kelas Unggulan</h2></div>
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-10">
+      <p class="text-ink/60 max-w-md">Kurikulum tersusun per sesi — tonton kapan saja, lengkap dengan materi PDF.</p>
+      <a href="#" class="btn btn-ghost text-sm">Lihat semua katalog →</a>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="cardc reveal">
+        <div class="thumb relative aspect-video bg-ink grid place-items-center">
+          <div class="absolute inset-0 blueprint opacity-30"></div>
+          <span class="tag absolute top-3 left-3 text-paper border-paper/40">AK3U</span>
+          <span class="chip absolute top-3 right-3" style="background:var(--hivis);color:var(--ink)">Terlaris</span>
+          <div class="playbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display text-2xl uppercase leading-none mb-2">Ahli K3 Umum — Persiapan BNSP</h3>
+          <p class="text-sm text-ink/60 mb-4">12 sesi · 8 jam · sertifikat</p>
+          <div class="flex items-center gap-1 text-hivis mb-4 text-sm">★★★★★ <span class="text-ink/50 ml-1">4.9 (212)</span></div>
+          <div class="rule mb-4"></div>
+          <div class="flex items-end justify-between">
+            <div><p class="font-mono text-[.6rem] tracking-widest uppercase text-ink/50">Akses selamanya</p><p class="font-display text-2xl">Rp 750.000</p></div>
+            <a href="#" class="btn btn-ember text-sm" style="box-shadow:3px 3px 0 0 var(--ink)">Beli</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cardc reveal">
+        <div class="thumb relative aspect-video bg-steel grid place-items-center">
+          <div class="absolute inset-0 blueprint opacity-30"></div>
+          <span class="tag absolute top-3 left-3 text-paper border-paper/40">POP</span>
+          <div class="playbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display text-2xl uppercase leading-none mb-2">Pengawas Operasional Pertama</h3>
+          <p class="text-sm text-ink/60 mb-4">18 sesi · 14 jam · sertifikat</p>
+          <div class="flex items-center gap-1 text-hivis mb-4 text-sm">★★★★★ <span class="text-ink/50 ml-1">4.8 (96)</span></div>
+          <div class="rule mb-4"></div>
+          <div class="flex items-end justify-between">
+            <div><p class="font-mono text-[.6rem] tracking-widest uppercase text-ink/50">Akses selamanya</p><p class="font-display text-2xl">Rp 1.200.000</p></div>
+            <a href="#" class="btn btn-ember text-sm" style="box-shadow:3px 3px 0 0 var(--ink)">Beli</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cardc reveal">
+        <div class="thumb relative aspect-video bg-ink grid place-items-center">
+          <div class="absolute inset-0 contour opacity-70"></div>
+          <span class="tag absolute top-3 left-3 text-paper border-paper/40">Blasting</span>
+          <span class="chip absolute top-3 right-3" style="background:var(--ember);color:#fff">Baru</span>
+          <div class="playbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display text-2xl uppercase leading-none mb-2">Juru Ledak Kelas II</h3>
+          <p class="text-sm text-ink/60 mb-4">15 sesi · 11 jam · sertifikat</p>
+          <div class="flex items-center gap-1 text-hivis mb-4 text-sm">★★★★☆ <span class="text-ink/50 ml-1">4.7 (54)</span></div>
+          <div class="rule mb-4"></div>
+          <div class="flex items-end justify-between">
+            <div><p class="font-mono text-[.6rem] tracking-widest uppercase text-ink/50">Akses selamanya</p><p class="font-display text-2xl">Rp 1.500.000</p></div>
+            <a href="#" class="btn btn-ember text-sm" style="box-shadow:3px 3px 0 0 var(--ink)">Beli</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- how it works -->
+<section id="cara" class="max-w-content mx-auto px-5 py-20">
+  <div class="seclabel reveal mb-10"><span class="no">03</span><div class="rule flex-1"></div><h2 class="h-sec text-3xl md:text-4xl">Cara Kerja</h2></div>
+  <div class="grid md:grid-cols-4 gap-px bg-[color:var(--line)] border border-[color:var(--line)]">
+    <div class="bg-paper p-7 reveal">
+      <p class="font-display text-5xl text-ember leading-none mb-4">01</p>
+      <h3 class="font-display text-xl uppercase mb-2">Pilih Kelas</h3>
+      <p class="text-sm text-ink/60">Telusuri katalog per bidang K3, lihat kurikulum &amp; pratinjau.</p>
+    </div>
+    <div class="bg-paper p-7 reveal">
+      <p class="font-display text-5xl text-ember leading-none mb-4">02</p>
+      <h3 class="font-display text-xl uppercase mb-2">Bayar Online</h3>
+      <p class="text-sm text-ink/60">Transfer VA bank atau QRIS. Akses terbuka otomatis setelah bayar.</p>
+    </div>
+    <div class="bg-paper p-7 reveal">
+      <p class="font-display text-5xl text-ember leading-none mb-4">03</p>
+      <h3 class="font-display text-xl uppercase mb-2">Tonton &amp; Pelajari</h3>
+      <p class="text-sm text-ink/60">Video per sesi + materi PDF. Belajar kapan saja, akses selamanya.</p>
+    </div>
+    <div class="bg-paper p-7 reveal relative">
+      <span class="absolute top-4 right-4 chip" style="background:var(--ink);color:var(--paper)">Fase berikutnya</span>
+      <p class="font-display text-5xl text-ember leading-none mb-4">04</p>
+      <h3 class="font-display text-xl uppercase mb-2">Ujian &amp; Sertifikat</h3>
+      <p class="text-sm text-ink/60">Selesaikan ujian, dapatkan sertifikat kompetensi digital.</p>
+    </div>
+  </div>
+</section>
+
+<!-- live class -->
+<section id="live" class="bg-ink text-paper relative overflow-hidden">
+  <div class="absolute inset-0 blueprint opacity-40"></div>
+  <div class="relative max-w-content mx-auto px-5 py-20 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="reveal">
+      <p class="eyebrow text-ember mb-4">[ Kelas Live · Zoom ]</p>
+      <h2 class="h-sec text-4xl md:text-5xl mb-5">Belajar langsung<br/>bersama instruktur.</h2>
+      <p class="text-paper/70 max-w-md mb-8">Sesi live interaktif via Zoom — tanya jawab langsung, studi kasus lapangan. Tautan &amp; kode akses dikirim otomatis ke pembeli.</p>
+      <a href="#" class="btn btn-ember">Lihat jadwal live →</a>
+    </div>
+    <div class="reveal space-y-4">
+      <div class="bg-ink-2 border-2 border-paper/15 p-5 flex items-center gap-5">
+        <div class="text-center shrink-0 border-r border-paper/15 pr-5">
+          <p class="font-display text-4xl leading-none text-ember">28</p><p class="font-mono text-xs uppercase">Jun</p>
+        </div>
+        <div class="flex-1">
+          <span class="chip mb-2 inline-block">Khusus member</span>
+          <h3 class="font-display text-xl uppercase leading-none">Update Regulasi K3 Pertambangan 2026</h3>
+          <p class="text-sm text-paper/60 mt-1 font-mono">19:30 WIB · 90 menit</p>
+        </div>
+      </div>
+      <div class="bg-ink-2 border-2 border-paper/15 p-5 flex items-center gap-5">
+        <div class="text-center shrink-0 border-r border-paper/15 pr-5">
+          <p class="font-display text-4xl leading-none text-ember">05</p><p class="font-mono text-xs uppercase">Jul</p>
+        </div>
+        <div class="flex-1">
+          <span class="tag mb-2 inline-block text-paper border-paper/40">Gratis</span>
+          <h3 class="font-display text-xl uppercase leading-none">Investigasi Insiden Tambang</h3>
+          <p class="text-sm text-paper/60 mt-1 font-mono">20:00 WIB · 60 menit</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- membership -->
+<section id="membership" class="max-w-content mx-auto px-5 py-20">
+  <div class="border-2 border-ink relative overflow-hidden">
+    <div class="hazard absolute top-0 left-0 right-0 h-1.5"></div>
+    <div class="grid lg:grid-cols-2">
+      <div class="p-9 md:p-12">
+        <p class="eyebrow text-ember mb-4">[ Membership Lifetime ]</p>
+        <h2 class="h-sec text-4xl md:text-5xl mb-5">Satu kali, akses selamanya.</h2>
+        <p class="text-ink/60 mb-7 max-w-md">Jadi member dan nikmati keuntungan eksklusif untuk perjalanan sertifikasi K3 Anda.</p>
+        <ul class="space-y-3 text-[.95rem]">
+          <li class="flex items-center gap-3"><span class="text-ember font-bold">✓</span> Diskon setiap pembelian kelas</li>
+          <li class="flex items-center gap-3"><span class="text-ember font-bold">✓</span> Prioritas &amp; akses gratis kelas live tertentu</li>
+          <li class="flex items-center gap-3"><span class="text-ember font-bold">✓</span> Kode referal — ajak rekan, dapat benefit</li>
+          <li class="flex items-center gap-3"><span class="text-ember font-bold">✓</span> Badge member &amp; dukungan prioritas</li>
+        </ul>
+      </div>
+      <div class="bg-ink text-paper p-9 md:p-12 flex flex-col justify-center relative overflow-hidden">
+        <div class="absolute inset-0 blueprint opacity-40"></div>
+        <div class="relative">
+          <p class="font-mono text-xs tracking-widest uppercase text-paper/50">Member Lifetime</p>
+          <div class="flex items-end gap-2 my-2">
+            <p class="font-display text-6xl leading-none">Rp 499<span class="text-3xl">rb</span></p>
+            <p class="text-paper/40 line-through mb-2">Rp 990rb</p>
+          </div>
+          <p class="text-paper/60 text-sm mb-7">Sekali bayar — tanpa biaya bulanan.</p>
+          <a href="#" class="btn btn-onink w-full justify-center">Gabung Member →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- testimonial -->
+<section class="bg-ink text-paper">
+  <div class="max-w-content mx-auto px-5 py-16">
+    <div class="grid md:grid-cols-12 gap-8 items-center reveal">
+      <p class="md:col-span-2 font-display text-7xl text-ember leading-none">“</p>
+      <blockquote class="md:col-span-7 text-2xl md:text-3xl font-display uppercase leading-tight">
+        Materinya padat dan aplikatif. Saya lulus sertifikasi POP setelah belajar di Teknominerba.
+      </blockquote>
+      <div class="md:col-span-3 md:border-l border-paper/15 md:pl-6">
+        <p class="font-semibold">Bayu Pratama</p>
+        <p class="text-sm text-paper/60">Safety Officer · Kalimantan Timur</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- final cta -->
+<section class="bg-paper-2 text-ink border-y-2 border-ink">
+  <div class="max-w-content mx-auto px-5 py-14 flex flex-col md:flex-row items-center justify-between gap-6">
+    <h2 class="h-sec text-3xl md:text-5xl">Mulai tingkatkan<br class="hidden md:block"/> kompetensi K3 Anda.</h2>
+    <a href="#katalog" class="btn btn-ember shrink-0" style="box-shadow:5px 5px 0 0 var(--ink)">Jelajahi Kelas →</a>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="bg-ink text-paper">
+  <div class="max-w-content mx-auto px-5 py-14">
+    <div class="grid md:grid-cols-12 gap-10">
+      <div class="md:col-span-4">
+        <div class="flex items-center gap-2.5 mb-4">
+          <span class="w-8 h-8 bg-paper text-ember grid place-items-center" style="clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 20 L12 5 L20 20"/><path d="M8 20 L12 13 L16 20"/></svg>
+          </span>
+          <span class="font-display font-extrabold text-lg uppercase">Tekno<span class="text-ember">minerba</span></span>
+        </div>
+        <p class="text-sm text-paper/55 max-w-xs">Platform pembelajaran &amp; sertifikasi K3 pertambangan. Belajar dari yang ahli, akses selamanya.</p>
+      </div>
+      <div class="md:col-span-2"><p class="font-mono text-xs tracking-widest uppercase text-paper/40 mb-4">Kelas</p>
+        <ul class="space-y-2 text-sm"><li><a href="#" class="flink">Katalog</a></li><li><a href="#" class="flink">Kelas Live</a></li><li><a href="#" class="flink">Membership</a></li></ul></div>
+      <div class="md:col-span-2"><p class="font-mono text-xs tracking-widest uppercase text-paper/40 mb-4">Perusahaan</p>
+        <ul class="space-y-2 text-sm"><li><a href="#" class="flink">Tentang</a></li><li><a href="#" class="flink">Instruktur</a></li><li><a href="#" class="flink">Kontak</a></li></ul></div>
+      <div class="md:col-span-4"><p class="font-mono text-xs tracking-widest uppercase text-paper/40 mb-4">Tetap terhubung</p>
+        <div class="flex border-2 border-paper/20">
+          <input type="email" placeholder="Email Anda" class="bg-transparent px-4 py-3 text-sm flex-1 outline-none placeholder:text-paper/40"/>
+          <button class="bg-ember text-white px-5 font-bold">→</button>
+        </div>
+        <p class="text-xs text-paper/40 mt-3">Info kelas baru &amp; jadwal live.</p>
+      </div>
+    </div>
+    <div class="rule-light my-8"></div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-paper/45 font-mono">
+      <p>© 2026 Teknominerba. Hak cipta dilindungi.</p>
+      <p>Dikembangkan oleh <span class="text-paper/70">WCC Technologies</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  const mb = document.getElementById('menuBtn'), mm = document.getElementById('mobileMenu');
+  mb && mb.addEventListener('click', () => mm.classList.toggle('hidden'));
+  // scroll reveal
+  const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

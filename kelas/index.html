@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+<title>Belajar — Pengawas Operasional Pertama · Teknominerba</title>
+<meta name="description" content="Ruang belajar Teknominerba — pemutar video sesi, materi pendukung PDF, dan daftar sesi kelas."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/styles.css"/>
+<style>
+  /* ---- page-specific (belajar) ---- */
+  .tabbtn{ font-family:"Saira Condensed",sans-serif; font-weight:700; text-transform:uppercase;
+    letter-spacing:.01em; font-size:1.05rem; padding:.75rem .2rem; border-bottom:3px solid transparent;
+    color:rgba(21,42,78,.45); transition:.15s; cursor:pointer; white-space:nowrap; }
+  .tabbtn:hover{ color:var(--ink); }
+  .tabbtn.active{ color:var(--ink); border-bottom-color:var(--ember); }
+  .tabpane{ display:none; }
+  .tabpane.show{ display:block; animation:rise .4s ease both; }
+
+  /* session rows */
+  .ses{ display:flex; align-items:center; gap:.8rem; padding:.7rem .9rem; border-top:1px solid var(--line);
+    transition:.13s; cursor:pointer; }
+  .ses:hover{ background:var(--paper-2); }
+  .ses.current{ background:var(--paper-2); border-left:3px solid var(--ember); padding-left:calc(.9rem - 3px); }
+  .ses.current .ses-title{ color:var(--ember); }
+  .ses-ico{ width:24px; height:24px; flex:none; display:grid; place-items:center; border:1.5px solid var(--ink);
+    font-size:.6rem; font-family:"JetBrains Mono",monospace; }
+  .ses-ico.cur{ background:var(--hivis); color:var(--ink); border-color:var(--ink); }
+
+  /* equalizer for currently-open session */
+  .eq{ display:flex; align-items:flex-end; gap:2px; height:12px; }
+  .eq span{ width:2.5px; background:var(--ink); animation:eqb .9s ease-in-out infinite; }
+  .eq span:nth-child(2){ animation-delay:.2s } .eq span:nth-child(3){ animation-delay:.4s }
+  @keyframes eqb{ 0%,100%{height:3px} 50%{height:11px} }
+
+  .modlabel{ font-family:"JetBrains Mono",monospace; font-size:.62rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--ink); opacity:.55; padding:.9rem .9rem .4rem; }
+
+  .scrollbox{ scrollbar-width:thin; scrollbar-color:var(--ink) transparent; }
+  .scrollbox::-webkit-scrollbar{ width:7px } .scrollbox::-webkit-scrollbar-thumb{ background:var(--ink) }
+  @media (prefers-reduced-motion:reduce){ .eq span{ animation:none } .tabpane.show{ animation:none } }
+</style>
+<noscript><style>.tabpane{display:block!important}</style></noscript>
+</head>
+<body class="font-sans">
+
+<!-- learning top bar -->
+<header class="sticky top-0 z-50 bg-ink text-paper border-b-2 border-ember">
+  <div class="hazard absolute top-0 left-0 right-0 h-1 opacity-90"></div>
+  <div class="max-w-content mx-auto px-5 h-16 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3 min-w-0">
+      <a href="/profil/#kelas" class="w-9 h-9 border-2 border-paper/30 grid place-items-center hover:bg-paper hover:text-ink transition shrink-0" aria-label="Kembali ke Kelas Saya">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
+      </a>
+      <div class="min-w-0">
+        <p class="font-mono text-[.58rem] tracking-widest uppercase text-ember leading-none mb-1">Kelas Saya / POP</p>
+        <p class="font-display font-bold uppercase leading-none text-lg truncate">Pengawas Operasional Pertama</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 shrink-0">
+      <span class="hidden md:inline-block font-mono text-[.66rem] tracking-widest uppercase text-paper/55">Sesi 06 / 13</span>
+      <a href="/profil/" class="w-9 h-9 bg-paper text-ember font-display font-extrabold text-base grid place-items-center border-2 border-paper" style="box-shadow:2px 2px 0 0 var(--ember)">BP</a>
+    </div>
+  </div>
+</header>
+
+<!-- main -->
+<div class="max-w-content mx-auto px-5 py-6 lg:py-8 grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+
+  <!-- player + detail -->
+  <main class="lg:col-span-8 min-w-0">
+
+    <!-- video player -->
+    <div class="relative aspect-video bg-ink border-2 border-ink overflow-hidden group">
+      <div class="absolute inset-0 blueprint opacity-40"></div>
+      <div class="absolute inset-0 contour opacity-80"></div>
+      <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+        <span class="chip">Sesi 06 / 13</span>
+        <span class="tag text-paper border-paper/40 bg-ink/60">YouTube · unlisted</span>
+      </div>
+      <button class="heroplay absolute inset-0 grid place-items-center" aria-label="Putar video">
+        <span class="playbtn" style="width:80px;height:80px"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
+      <!-- player controls (mock) -->
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink to-transparent pt-10 pb-3 px-4">
+        <div class="h-1.5 bg-paper/20 mb-3"><div class="h-full bg-ember relative" style="width:32%"><span class="absolute right-0 -top-1 w-3.5 h-3.5 bg-ember border-2 border-paper rounded-full"></span></div></div>
+        <div class="flex items-center justify-between text-paper">
+          <div class="flex items-center gap-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4zM15 9a3 3 0 010 6M18 6a7 7 0 010 12"/></svg>
+            <span class="font-mono text-xs text-paper/80">07:42 / 24:18</span>
+          </div>
+          <div class="flex items-center gap-4 text-paper/80">
+            <span class="font-mono text-[.66rem] border border-paper/40 px-1.5 py-0.5">1.0×</span>
+            <span class="font-mono text-[.66rem] border border-paper/40 px-1.5 py-0.5">HD</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8V3h5M21 8V3h-5M3 16v5h5M21 16v5h-5"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- lesson header -->
+    <div class="mt-6">
+      <p class="eyebrow text-ember mb-2">[ Bagian 2 · Manajemen Risiko ]</p>
+      <h1 class="h-sec text-3xl md:text-4xl mb-3">Manajemen Risiko Operasional Tambang</h1>
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink/60">
+        <span class="flex items-center gap-2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 24 menit 18 detik</span>
+        <span class="flex items-center gap-2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5l8 4 8-4v14M4 19h16"/></svg> Materi: 3 lampiran PDF</span>
+        <span class="flex items-center gap-2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg> Ir. Hendra Wijaya, IPM</span>
+      </div>
+    </div>
+
+    <!-- nav bar (sesi sebelumnya / berikutnya) -->
+    <div class="mt-5 flex items-center justify-between gap-3 border-y-2 border-ink py-4">
+      <span class="font-mono text-[.66rem] tracking-widest uppercase text-ink/55">Sesi 06 dari 13</span>
+      <div class="flex gap-3">
+        <button class="btn btn-ghost text-sm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg> Sebelumnya</button>
+        <button class="btn btn-ember text-sm" style="box-shadow:3px 3px 0 0 var(--ink)">Berikutnya <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+
+    <!-- tabs -->
+    <div class="mt-7">
+      <div class="flex gap-7 border-b-2 border-[color:var(--line)] overflow-x-auto scrollbox">
+        <button class="tabbtn active" data-tab="tentang">Tentang Sesi</button>
+        <button class="tabbtn" data-tab="materi">Materi <span class="font-mono text-ember text-sm align-top">3</span></button>
+      </div>
+
+      <!-- TENTANG -->
+      <div class="tabpane show pt-6" data-pane="tentang">
+        <p class="text-ink/75 leading-relaxed mb-6">
+          Sesi ini membahas penerapan manajemen risiko pada operasi pertambangan sesuai kaidah SMKP Minerba.
+          Anda akan mempelajari alur lengkap mulai dari identifikasi bahaya, penilaian tingkat risiko, hingga
+          penentuan pengendalian berbasis hierarki. Studi kasus diambil dari operasi tambang terbuka untuk
+          memperkuat pemahaman penerapan di lapangan.
+        </p>
+        <h3 class="font-display text-xl uppercase mb-4">Yang akan Anda pelajari</h3>
+        <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3 mb-8">
+          <li class="flex items-start gap-3"><span class="text-ember font-bold mt-0.5">✓</span> Menyusun matriks risiko (likelihood × severity)</li>
+          <li class="flex items-start gap-3"><span class="text-ember font-bold mt-0.5">✓</span> Menerapkan hierarki pengendalian risiko</li>
+          <li class="flex items-start gap-3"><span class="text-ember font-bold mt-0.5">✓</span> Membaca &amp; mengisi dokumen HIRADC</li>
+          <li class="flex items-start gap-3"><span class="text-ember font-bold mt-0.5">✓</span> Menentukan tingkat risiko sisa (residual)</li>
+        </ul>
+        <!-- instructor -->
+        <div class="panel p-5 flex items-center gap-5">
+          <span class="w-16 h-16 bg-ink text-ember font-display font-extrabold text-2xl grid place-items-center shrink-0" style="box-shadow:3px 3px 0 0 var(--ember)">HW</span>
+          <div class="flex-1">
+            <p class="font-mono text-[.6rem] tracking-widest uppercase text-ink/50 mb-1">Instruktur</p>
+            <h4 class="font-display text-xl uppercase leading-none mb-1">Ir. Hendra Wijaya, IPM</h4>
+            <p class="text-sm text-ink/60">Praktisi K3 Pertambangan · 18 tahun pengalaman operasi tambang terbuka.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATERI (materi pendukung PDF — termasuk Paket Dasar) -->
+      <div class="tabpane pt-6" data-pane="materi">
+        <p class="text-ink/60 text-sm mb-5">Unduh materi pendukung sesi ini. Tersedia untuk peserta kelas.</p>
+        <div class="panel divide-y divide-[color:var(--line)]">
+          <a href="#" class="flex items-center gap-4 p-4 hover:bg-paper-2 transition">
+            <span class="w-11 h-11 bg-ember text-white grid place-items-center border-2 border-ink shrink-0 font-mono text-[.6rem] font-bold">PDF</span>
+            <div class="flex-1 min-w-0"><p class="font-semibold truncate">Modul 06 — Manajemen Risiko Operasional.pdf</p><p class="font-mono text-xs text-ink/50">2.4 MB · 18 halaman</p></div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-ember shrink-0"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+          </a>
+          <a href="#" class="flex items-center gap-4 p-4 hover:bg-paper-2 transition">
+            <span class="w-11 h-11 bg-steel text-white grid place-items-center border-2 border-ink shrink-0 font-mono text-[.6rem] font-bold">XLS</span>
+            <div class="flex-1 min-w-0"><p class="font-semibold truncate">Template HIRADC — Tambang Terbuka.xlsx</p><p class="font-mono text-xs text-ink/50">86 KB · siap isi</p></div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-ember shrink-0"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+          </a>
+          <a href="#" class="flex items-center gap-4 p-4 hover:bg-paper-2 transition">
+            <span class="w-11 h-11 bg-ink text-hivis grid place-items-center border-2 border-ink shrink-0 font-mono text-[.6rem] font-bold">PDF</span>
+            <div class="flex-1 min-w-0"><p class="font-semibold truncate">Checklist Inspeksi Risiko Lapangan.pdf</p><p class="font-mono text-xs text-ink/50">540 KB · 4 halaman</p></div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-ember shrink-0"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- curriculum sidebar -->
+  <aside class="lg:col-span-4 min-w-0">
+    <div class="lg:sticky lg:top-24 border-2 border-ink bg-white">
+      <!-- header -->
+      <div class="bg-ink text-paper p-5">
+        <p class="eyebrow text-ember mb-2">[ Materi Kelas ]</p>
+        <h2 class="font-display text-2xl uppercase leading-none mb-2">Daftar Sesi</h2>
+        <p class="font-mono text-[.66rem] tracking-widest uppercase text-paper/55">13 sesi video · Bagian 1–3</p>
+      </div>
+
+      <!-- list -->
+      <div class="max-h-[560px] overflow-y-auto scrollbox">
+
+        <p class="modlabel">Bagian 1 · Dasar Regulasi</p>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">01 · Pengantar &amp; Ruang Lingkup POP</span><span class="font-mono text-[.62rem] text-ink/45">12:40</span></div>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">02 · Peraturan Perundangan K3</span><span class="font-mono text-[.62rem] text-ink/45">18:22</span></div>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">03 · SMKP Minerba</span><span class="font-mono text-[.62rem] text-ink/45">21:05</span></div>
+
+        <p class="modlabel">Bagian 2 · Manajemen Risiko</p>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">04 · Identifikasi Bahaya (HIRADC)</span><span class="font-mono text-[.62rem] text-ink/45">16:30</span></div>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">05 · Penilaian Risiko</span><span class="font-mono text-[.62rem] text-ink/45">19:48</span></div>
+        <div class="ses current"><span class="ses-ico cur"><span class="eq"><span></span><span></span><span></span></span></span><span class="ses-title flex-1 text-sm font-semibold">06 · Manajemen Risiko Operasional Tambang</span><span class="font-mono text-[.62rem] text-ember font-semibold">24:18</span></div>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">07 · Pengendalian Risiko &amp; Hierarki</span><span class="font-mono text-[.62rem] text-ink/45">22:10</span></div>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">08 · Inspeksi &amp; Audit K3</span><span class="font-mono text-[.62rem] text-ink/45">17:55</span></div>
+
+        <p class="modlabel">Bagian 3 · Operasional Lapangan</p>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">09 · Pengelolaan Lalu Lintas Tambang</span><span class="font-mono text-[.62rem] text-ink/45">20:14</span></div>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">10 · Pengawasan Alat &amp; Pesawat Angkat</span><span class="font-mono text-[.62rem] text-ink/45">23:40</span></div>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">11 · Investigasi Kecelakaan</span><span class="font-mono text-[.62rem] text-ink/45">26:02</span></div>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">12 · Tanggap Darurat</span><span class="font-mono text-[.62rem] text-ink/45">19:33</span></div>
+        <div class="ses"><span class="ses-ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ses-title flex-1 text-sm font-medium">13 · Pelaporan &amp; Dokumentasi</span><span class="font-mono text-[.62rem] text-ink/45">15:20</span></div>
+      </div>
+
+      <!-- footer cta -->
+      <div class="p-4 border-t-2 border-ink bg-paper-2/60">
+        <a href="/profil/#kelas" class="btn btn-ghost w-full justify-center text-sm">← Semua kelas saya</a>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<script>
+  // tabs
+  const tabs = document.querySelectorAll('.tabbtn');
+  const panes = document.querySelectorAll('.tabpane');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    panes.forEach(p => p.classList.remove('show'));
+    t.classList.add('active');
+    document.querySelector(`.tabpane[data-pane="${t.dataset.tab}"]`).classList.add('show');
+  }));
+</script>
+</body>
+</html>
